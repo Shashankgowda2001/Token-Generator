@@ -8,8 +8,14 @@ const TokenForm = ({ onGenerate, onClear }) => {
   const [redTokens, setRedTokens] = useState('');
   const [redPrefix, setRedPrefix] = useState('');
   const [redPerRow, setRedPerRow] = useState('');
+  const [error, setError] = useState(null);
 
   const handleGenerate = () => {
+    if(!blueTokens || !bluePrefix || !bluePerRow || !redTokens || !redPrefix || !redPerRow){
+      setError('Please Fill all the Fields');
+      return false;
+    }
+
     onGenerate({
       blueTokens: Number(blueTokens),
       bluePrefix,
@@ -68,6 +74,9 @@ const TokenForm = ({ onGenerate, onClear }) => {
             />
           </Grid>
         </Grid>
+      </Grid>
+      <Grid item xs={12} marginTop={1}>
+        {error && <span style={{ fontWeight: 'bold', color: 'red' }}>{error}</span>}
       </Grid>
       <Box sx={{ marginTop: 2, textAlign: 'center' }}>
         <Button variant="contained" color="primary" onClick={handleGenerate} sx={{ marginRight: 2 }}>

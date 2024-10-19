@@ -12,7 +12,7 @@ function Route() {
 
     let blueRow = [];
     for (let i = 1; i <= blueTokens; i++) {
-      blueRow.push(`${bluePrefix}${i}`);
+      blueRow.push({ token: `${bluePrefix}${i}`, color: 'blue' });
       if (i % bluePerRow === 0 || i === blueTokens) {
         blueTokenArray.push(blueRow);
         blueRow = [];
@@ -21,7 +21,7 @@ function Route() {
 
     let redRow = [];
     for (let i = 1; i <= redTokens; i++) {
-      redRow.push(`${redPrefix}${i}`);
+      redRow.push({ token: `${redPrefix}${i}`, color: 'red' });
       if (i % redPerRow === 0 || i === redTokens) {
         redTokenArray.push(redRow);
         redRow = [];
