@@ -16,6 +16,11 @@ const TokenForm = ({ onGenerate, onClear }) => {
       return false;
     }
 
+    if(blueTokens < 0 || bluePerRow < 0 || redTokens < 0 || redPerRow < 0){
+      setError('Enter Valid Numbers');
+      return false;
+    }
+
     onGenerate({
       blueTokens: Number(blueTokens),
       bluePrefix,
